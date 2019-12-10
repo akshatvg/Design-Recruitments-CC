@@ -1,2 +1,2 @@
-# CodeChef-Recruitment-Portal
-Portal for recruitments.
+# Design-Recruitments-CC
+Recruitment Portal For Design Team.
