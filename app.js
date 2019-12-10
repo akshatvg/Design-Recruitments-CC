@@ -450,7 +450,7 @@ app.get('/designexam', auth, function (err, res) {
             myques.find({
                 title: 'Design'
             }, (err, userTest) => {
-                if (userTest.length == 0 || userTest.length != 5) {
+                if (userTest.length == 0 || userTest.length != 16) {
                     res.render('no_ques', {
                         noques: 'Questions are yet to be added.'
                     })
@@ -461,7 +461,7 @@ app.get('/designexam', auth, function (err, res) {
                     var jugaad = []
                     var store = []
                     ctr = 0
-                    while (ctr != 5) {
+                    while (ctr != 10) {
                         x = Math.floor(Math.random() * n)
                         if (l.includes(x) == false) {
                             l.push(x)
@@ -469,7 +469,7 @@ app.get('/designexam', auth, function (err, res) {
                         }
                     }
 
-                    for (i = 0; i < 5; i++) {
+                    for (i = 0; i < 10; i++) {
                         if (userTest[l[i]].ques.includes("$")) {
                             var str = userTest[l[i]].ques
                             jugaad.push(str)
@@ -499,74 +499,6 @@ app.get('/designexam', auth, function (err, res) {
     })
 })
 
-app.get('/uiuxexam', auth, function (err, res) {
-
-    ans.findOne({
-        regno: rnumber,
-        title: 'UI'
-    }, (err, user) => {
-        let errors = []
-        if (user) {
-            errors.push({
-                text: 'You have already attempted this test!'
-            })
-            res.render('exam', {
-                msg: message1,
-                errors: errors
-            })
-        } else {
-            myques.find({
-                title: 'UI'
-            }, (err, userTest) => {
-                if (userTest.length == 0 || userTest.length != 9) {
-                    res.render('no_ques', {
-                        noques: 'Questions are yet to be added.'
-                    })
-                } else {
-                    var n = userTest.length
-                    var arr = []
-                    var store = []
-                    l = []
-                    var jugaad = []
-                    ctr = 0
-                    while (ctr != 9) {
-                        x = Math.floor(Math.random() * n)
-                        if (l.includes(x) == false) {
-                            l.push(x)
-                            ctr = ctr + 1
-                        }
-                    }
-
-                    for (i = 0; i < 9; i++) {
-                        if (userTest[l[i]].ques.includes("$")) {
-                            var str = userTest[l[i]].ques
-                            jugaad.push(str)
-                            var s = str.split("$")
-                            store.push({
-                                data: s
-                            })
-
-                        } else {
-                            var value = userTest[l[i]].ques
-                            arr.push(value)
-                        }
-                    }
-
-                    res.render('mcq', {
-                        title: 'UI',
-                        dom: 'UI',
-                        ques: arr,
-                        mques: store,
-                        jugaad,
-                        name: message1
-
-                    })
-                }
-            })
-        }
-    })
-
-})
 
 // Error Messages
 
