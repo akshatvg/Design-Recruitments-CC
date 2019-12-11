@@ -48,7 +48,7 @@
             </div>
             <div class="content">
                 <div class="inner">
-                    <h1><span class="dom">{{dom}}</span> Domain: <span class="dom-title">{{title}}</span> </h1>
+                    <h1><span class="dom">{{dom}}</span> Domain</h1>
                     <div class="fields">
                         {{#if ques}}
                         {{#each ques}}
@@ -173,28 +173,26 @@
                         var domTitle = document.querySelector('.dom-title')
                         var resp1 = document.querySelectorAll('.sub')
                         var ques1 = document.querySelectorAll('.ques1')
-                        var ju=document.querySelectorAll('.ju')
+                        var ju = document.querySelectorAll('.ju')
                         var arr = []
-                        var aar1=[]
-                        var j;                  
+                        var aar1 = []
+                        var j;
 
                         var i
-                        for(j=0;j<ques1.length;j++)
-                        {
+                        for (j = 0; j < ques1.length; j++) {
                             aar1.push(ques1[j].innerHTML)
                         }
-                        for(j=0;j<ju.length;j++)
-                        {
+                        for (j = 0; j < ju.length; j++) {
                             aar1.push(ju[j].innerHTML)
                         }
                         for (i = 0; i < aar1.length; i++) {
-    
+
                             var newobj = {
-                            ques: aar1[i],
-                            answer: resp1[i].value
-            
-                            } 
-        
+                                ques: aar1[i],
+                                answer: resp1[i].value
+
+                            }
+
                             arr.push(newobj)
                         }
 
@@ -221,7 +219,7 @@
             }
         });
 
-        $('.btnSubmit').on('click',function () {
+        $('.btnSubmit').on('click', function () {
             timeLeft = false
             console.log("Done")
         });
