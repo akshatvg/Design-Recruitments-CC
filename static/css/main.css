@@ -1475,7 +1475,7 @@ body.is-preload #bg:before {
 	-ms-transition-delay: 0.25s;
 	transition-delay: 0.25s;
 	padding: 3rem 2rem;
-	max-height: 99999rem;
+	max-height: 999999999999999999999999999999999rem;
 	overflow: hidden;
 }
 
