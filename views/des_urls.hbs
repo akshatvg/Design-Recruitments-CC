@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Title -->
+    <title>CodeChef- VIT Recruitments</title>
+
+    <!-- Meta Tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <!-- Linking CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="icon" type="image/gif" href="images/favicon.jpg" />
+
+    <!-- No Script -->
+    <noscript>
+        <link rel="stylesheet" href="css/noscript.css" /></noscript>
+
+    <!-- Particle.js-->
+    <script src="js/particles.min.js"></script>
+
+    <!-- reCaptcha -->
+    {{!-- <script src="https://www.google.com/recaptcha/api.js?render=6Ld_gsYUAAAAAKyxXO0Cn1wezKzIWutm8fuG_gdb"></script> --}}
+
+</head>
+
+<body>
+
+    <div id="preloader"></div>
+
+    <div id="particles-js"></div>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <img class="img-responsive logo" src="images/Logo_White.png" alt="Logo" />
+            <div class="content">
+                {{#each errors}}
+                <div class="alert alert-danger">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <p style="color: red;">{{this.text}}</p>
+                </div>
+                {{/each}}
+                <div class="inner">
+                    <h2 class="major white">Upload Past Work</h2>
+                    {{#if msgsent}}
+                    <div class="alert alert-success">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <p>{{msgsent}}</p>
+                    </div>
+                    {{/if}}
+                    <form action="/urls_sub" method="post" role="form" id="urls_form">
+                        <div class="fields">
+                            <div class="field half">
+                                <label for="name" class="white" align="left">Name</label>
+                                <input type="text" name="name" id="name" required class="white" />
+                            </div>
+                            <div class="field half">
+                                <label for="email" class="white" align="left">Email</label>
+                                <input type="email" name="email" id="email" class="white" required />
+                            </div>
+                            <div class="field">
+                                <label for="urls_des" class="white" align="left">Google Drive Folder Link</label>
+                                <input name="urls_des" id="urls_des" type="url" class="white" required />
+                            </div>
+                        </div>
+                        <ul class="actions">
+                            <li><input type="submit" value="Send Message" class="primary" /></li>
+                            <li><input type="reset" value="Clear" class="primary" /></li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+
+            <a href="/logout">
+                <button class="primary">Logout
+                </button>
+            </a>
+
+        </header>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p class="copyright">&copy; <a href="http://www.codechefvit.com/index.html">CodeChef- VIT</a>.</p>
+        </footer>
+
+    </div>
+
+    <!-- BG -->
+    <div id="bg"></div>
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/browser.min.js"></script>
+    <script src="js/breakpoints.min.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+
+        document.getElementById('urls_form').addEventListener('submit', (e) => {
+
+            $.ajax({
+                url: '/urls_sub',
+                type: "POST",
+                data: {
+                    display: JSON.stringify(data)
+                },
+                success: function (data) {
+                    console.log('success')
+                    window.location.href = '/des_urls'
+
+                },
+                error: function (err) {
+                    console.log('error')
+                }
+
+            })
+        })
+
+    </script>
+
+</body>
+
+</html>

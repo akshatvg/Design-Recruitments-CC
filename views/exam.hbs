@@ -45,9 +45,9 @@
                 </div>
                 {{/each}}
                 <div class="inner">
-                    <h1>Choose Your Domain</h1>
+                    <h1>What Do You Want To Do?</h1>
                     <div class="fields">
-                        <div class="field spacing-test">
+                        {{!-- <div class="field spacing-test">
                             <a href="/tech">
                                 <img src="images/code.png" class="img-responsive" style="width:50px;height:50px;">
                                 <strong>
@@ -70,19 +70,31 @@
                                     Can you lead a team?
                                 </p>
                             </a>
-                        </div>
-                        {{!-- <div class="field spacing-test">
+                        </div> --}}
+                        <div class="field spacing-test">
                             <a href="/designexam">
                                 <img src="images/design.png" class="img-responsive" style="width:50px;height:50px;">
                                 <strong>
-                                    <h3>Design Domain
+                                    <h3>Design Domain: Online Test
                                 </strong>
                                 </h3>
                                 <p>
                                     Does creativity run through your veins?
                                 </p>
                             </a>
-                        </div> --}}
+                        </div>
+                        <div class="field spacing-test">
+                            <a href="/des_urls">
+                                <img src="images/content.png" class="img-responsive" style="width:50px;height:50px;">
+                                <strong>
+                                    <h3>Upload Past Work
+                                </strong>
+                                </h3>
+                                <p>
+                                    Have awesome projects to show to us?
+                                </p>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,7 +104,41 @@
                 </button>
             </a>
 
+
         </header>
+
+        {{!-- <div id="main">
+            <article id="des_urls">
+                <h2 class="major">Upload Past Work</h2>
+                {{#if msgsent}}
+                <div class="alert alert-success">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <p>{{msgsent}}</p>
+                </div>
+                {{/if}}
+                <form action="/contact" method="post" role="form">
+                    <div class="fields mainpg">
+                        <div class="field half">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" required />
+                        </div>
+                        <div class="field half">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" required />
+                        </div>
+                        <div class="field">
+                            <label for="urls_des">Google Drive Folder Link</label>
+                            <input name="urls_des" id="urls_des" required />
+                        </div>
+                    </div>
+                    <ul class="actions">
+                        <li><input type="submit" value="Send Message" class="primary" /></li>
+                        <li><input type="reset" value="Clear" class="primary" /></li>
+                    </ul>
+                </form>
+                <img src="images/CC_black.png" alt="CodeChef- VIT" class="image main fit right" />
+            </article>
+        </div> --}}
 
         <!-- Footer -->
         <footer id="footer">
@@ -100,8 +146,6 @@
         </footer>
 
     </div>
-
-    </header>
 
     <!-- BG -->
     <div id="bg"></div>

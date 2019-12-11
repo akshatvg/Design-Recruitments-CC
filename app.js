@@ -17,6 +17,7 @@ var userRegister = require('./models/db-mongoose')
 var myques = require('./models/db-ques')
 var contactUs = require('./models/db-contact')
 var ans = require('./models/db-answers')
+var urls_des = require('./models/db-urls_des')
 
 var bodyParser = require('body-parser')
 var validator = require('validator')
@@ -282,6 +283,7 @@ app.post('/contact', (req, res) => {
     })
 
 })
+
 app.get('/index', function (req, res) {
     res.render('index', {
 
@@ -298,17 +300,47 @@ app.get('/exam', auth, function (req, res) {
         msg: message1
     })
 })
-app.get('/tech', auth, function (req, res) {
-    res.render('tech', {
 
-        msg: message1
+// app.get('/tech', auth, function (req, res) {
+//     res.render('tech', {
+
+//         msg: message1
+//     })
+// })
+// app.get('/manage', auth, function (req, res) {
+//     res.render('manag', {
+
+//         msg: message1
+//     })
+// })
+
+app.get('/des_urls', auth, (req, res) => {
+    res.render('des_urls', {
+        message: ""
     })
 })
-app.get('/manage', auth, function (req, res) {
-    res.render('manag', {
 
-        msg: message1
+var mymsg = undefined
+app.post('/urls_sub', (req, res) => {
+    console.log(message1)
+    console.log(useremail)
+    const newmsg = {
+        name: req.body.name,
+        email: req.body.email,
+        message: req.body.message,
+        date: new Date
+    }
+
+    new contactUs(newmsg).save((err, data) => {
+        if (err) {
+            throw err
+        }
+        console.log('message sent')
+        mymsg = 'Thanks for reaching out to us. We will get back to you soon!'
+        res.redirect('/des_urls')
+
     })
+
 })
 
 var message2 = ""
