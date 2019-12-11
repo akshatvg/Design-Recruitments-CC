@@ -1,6 +1,5 @@
 var btnSubmit = document.querySelector('.btnSubmit')
 var dom = document.querySelector('.dom')
-var domTitle = document.querySelector('.dom-title')
 var resp1 = document.querySelectorAll('.sub')
 var ques1 = document.querySelectorAll('.ques1')
 var ju=document.querySelectorAll('.ju')
@@ -36,7 +35,7 @@ $('.btnSubmit').on('click', () => {
     //console.log(arr)
     var data = {
         domain: dom.innerHTML,
-        title: domTitle.innerHTML,
+        title: dom.innerHTML,
         response: arr
     }
     //console.log(JSON.stringify(data))
@@ -49,7 +48,7 @@ $('.btnSubmit').on('click', () => {
         },
         success: function (data) {
             console.log('success')
-            // window.location.href = '/exam'
+            window.location.href = '/exam'
         },
         error: function (err) {
             console.log('error')

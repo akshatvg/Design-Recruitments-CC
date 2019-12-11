@@ -9,15 +9,18 @@ var data = new mongoose.Schema({
         type: String,
         required: true
     },
-    message: {
+    regno: {
         type: String,
         required: true
     },
-    date: {
-        type: Date
+    link: {
+        type: String
+    },
+    date:{
+        type:Date
     }
 })
 
-var contactUs = mongoose.model('urls_des', data)
+var urls_des = mongoose.model('urls_des', data)
 
-module.exports = contactUs
+module.exports = urls_des

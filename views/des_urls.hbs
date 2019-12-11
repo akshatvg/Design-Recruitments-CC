@@ -52,7 +52,7 @@
                         <p>{{msgsent}}</p>
                     </div>
                     {{/if}}
-                    <form action="/urls_sub" method="post" role="form" id="urls_form">
+                    <form action="/urls_sub" method="POST" role="form" id="urls_form">
                         <div class="fields">
                             <div class="field half">
                                 <label for="name" class="white" align="left">Name</label>
@@ -98,30 +98,6 @@
     <script src="js/breakpoints.min.js"></script>
     <script src="js/util.js"></script>
     <script src="js/main.js"></script>
-
-    <script>
-
-        document.getElementById('urls_form').addEventListener('submit', (e) => {
-
-            $.ajax({
-                url: '/urls_sub',
-                type: "POST",
-                data: {
-                    display: JSON.stringify(data)
-                },
-                success: function (data) {
-                    console.log('success')
-                    window.location.href = '/des_urls'
-
-                },
-                error: function (err) {
-                    console.log('error')
-                }
-
-            })
-        })
-
-    </script>
 
 </body>
 

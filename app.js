@@ -301,45 +301,44 @@ app.get('/exam', auth, function (req, res) {
     })
 })
 
-// app.get('/tech', auth, function (req, res) {
-//     res.render('tech', {
-
-//         msg: message1
-//     })
-// })
-// app.get('/manage', auth, function (req, res) {
-//     res.render('manag', {
-
-//         msg: message1
-//     })
-// })
 
 app.get('/des_urls', auth, (req, res) => {
+    urls_des.findOne({
+        email: useremail,
+    }, (err, user) => {
+        let errors = []
+        if (user) {
+            errors.push({
+                text: 'Submission can be made only once!'
+            })
+            res.render('exam', {
+                msg: message1,
+                errors: errors
+            })
+        } else {
     res.render('des_urls', {
         message: ""
+    })
+}
     })
 })
 
 var mymsg = undefined
 app.post('/urls_sub', (req, res) => {
-    console.log(message1)
-    console.log(useremail)
-    const newmsg = {
-        name: req.body.name,
-        email: req.body.email,
-        message: req.body.message,
-        date: new Date
+
+    var newobj = {
+        name: message1,
+        email: useremail,
+        regno: rnumber,
+        date: new Date(),
+        link:req.body.urls_des
     }
-
-    new contactUs(newmsg).save((err, data) => {
-        if (err) {
-            throw err
-        }
-        console.log('message sent')
-        mymsg = 'Thanks for reaching out to us. We will get back to you soon!'
-        res.redirect('/des_urls')
-
+    console.log(newobj)
+    var resp = new urls_des(newobj)
+    resp.save(() => {
+        console.log('response added')
     })
+    res.redirect('/exam')
 
 })
 
@@ -394,7 +393,7 @@ app.get('/adminlogout', function (req, res) {
 app.post('/storeResponse', (req, res) => {
 
     var data = JSON.parse(req.body.display)
-
+    console.log(data)
     var i
     var arr = []
     for (i = 0; i < data.response.length; i++) {
