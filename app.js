@@ -316,10 +316,10 @@ app.get('/des_urls', auth, (req, res) => {
                 errors: errors
             })
         } else {
-    res.render('des_urls', {
-        message: ""
-    })
-}
+            res.render('des_urls', {
+                message: ""
+            })
+        }
     })
 })
 
@@ -331,7 +331,7 @@ app.post('/urls_sub', (req, res) => {
         email: useremail,
         regno: rnumber,
         date: new Date(),
-        link:req.body.urls_des
+        link: req.body.urls_des
     }
     console.log(newobj)
     var resp = new urls_des(newobj)
@@ -359,6 +359,14 @@ app.get('/viewSub', function (req, res) {
 })
 
 app.get('/Akshat_Is_Awesome', function (req, res) {
+    message2 = ""
+    res.render('Akshat_Is_Awesome', {
+        msg: 'Admin',
+    })
+
+})
+
+app.get('/Nautanki', function (req, res) {
     message2 = ""
     res.render('Akshat_Is_Awesome', {
         msg: 'Admin',
