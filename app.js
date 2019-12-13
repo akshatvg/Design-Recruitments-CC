@@ -366,13 +366,6 @@ app.get('/Akshat_Is_Awesome', function (req, res) {
 
 })
 
-app.get('/Nautanki', function (req, res) {
-    message2 = ""
-    res.render('Akshat_Is_Awesome', {
-        msg: 'Admin',
-    })
-
-})
 
 app.get('/logout', auth, function (req, res) {
     userSession = req.session;
@@ -469,74 +462,74 @@ app.get('/success', (req, res) => {
 
 })
 
-app.get('/designexam', auth, function (err, res) {
+// app.get('/designexam', auth, function (err, res) {
 
-    ans.findOne({
-        regno: rnumber,
-        title: 'Design'
-    }, (err, user) => {
-        let errors = []
-        if (user) {
-            errors.push({
-                text: 'You have already attempted this test!'
-            })
-            res.render('exam', {
-                msg: message1,
-                errors: errors
-            })
-        } else {
+//     ans.findOne({
+//         regno: rnumber,
+//         title: 'Design'
+//     }, (err, user) => {
+//         let errors = []
+//         if (user) {
+//             errors.push({
+//                 text: 'You have already attempted this test!'
+//             })
+//             res.render('exam', {
+//                 msg: message1,
+//                 errors: errors
+//             })
+//         } else {
 
-            myques.find({
-                title: 'Design'
-            }, (err, userTest) => {
-                if (userTest.length == 0 || userTest.length != 16) {
-                    res.render('no_ques', {
-                        noques: 'Questions are yet to be added.'
-                    })
-                } else {
-                    var n = userTest.length
-                    var arr = []
-                    l = []
-                    var jugaad = []
-                    var store = []
-                    ctr = 0
-                    while (ctr != 10) {
-                        x = Math.floor(Math.random() * n)
-                        if (l.includes(x) == false) {
-                            l.push(x)
-                            ctr = ctr + 1
-                        }
-                    }
+//             myques.find({
+//                 title: 'Design'
+//             }, (err, userTest) => {
+//                 if (userTest.length == 0 || userTest.length != 16) {
+//                     res.render('no_ques', {
+//                         noques: 'Questions are yet to be added.'
+//                     })
+//                 } else {
+//                     var n = userTest.length
+//                     var arr = []
+//                     l = []
+//                     var jugaad = []
+//                     var store = []
+//                     ctr = 0
+//                     while (ctr != 10) {
+//                         x = Math.floor(Math.random() * n)
+//                         if (l.includes(x) == false) {
+//                             l.push(x)
+//                             ctr = ctr + 1
+//                         }
+//                     }
 
-                    for (i = 0; i < 10; i++) {
-                        if (userTest[l[i]].ques.includes("$")) {
-                            var str = userTest[l[i]].ques
-                            jugaad.push(str)
-                            var s = str.split("$")
-                            store.push({
-                                data: s
-                            })
+//                     for (i = 0; i < 10; i++) {
+//                         if (userTest[l[i]].ques.includes("$")) {
+//                             var str = userTest[l[i]].ques
+//                             jugaad.push(str)
+//                             var s = str.split("$")
+//                             store.push({
+//                                 data: s
+//                             })
 
-                        } else {
-                            var value = userTest[l[i]].ques
-                            arr.push(value)
-                        }
-                    }
+//                         } else {
+//                             var value = userTest[l[i]].ques
+//                             arr.push(value)
+//                         }
+//                     }
 
-                    res.render('mcq', {
-                        title: 'Design',
-                        dom: 'Design',
-                        ques: arr,
-                        mques: store,
-                        jugaad,
-                        name: message1
+//                     res.render('mcq', {
+//                         title: 'Design',
+//                         dom: 'Design',
+//                         ques: arr,
+//                         mques: store,
+//                         jugaad,
+//                         name: message1
 
-                    })
-                }
-            })
-        }
-    })
-})
+//                     })
+//                 }
+//             })
+//         }
+//     })
+// })
 
 
 // Error Messages
