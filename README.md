@@ -24,7 +24,7 @@ The source code of this project is written in **`HTML/CSS/JS, Node.js`**. So, yo
 ## Instructions
 ```
 $ git clone https://github.com/akshatvg/Design-Recruitments-CC
-$ cd CodeChef-Recruitment-Portal
+$ cd Design-Recruitments-CC
 $ npm install
 $ node app.js
 ```
