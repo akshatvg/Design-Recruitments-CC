@@ -12,8 +12,8 @@ Web portal for recruitments for the design core of 2019 for CodeChef-VIT.
 
 ![Generic badge](https://img.shields.io/badge/CodeChef-recruitments-orange) 
 
-#### Link for [demo](https://design19-cc.akshatvg.com/ 
-[![Generic badge](https://img.shields.io/badge/view-demo-orange)](https://design19-cc.akshatvg.com/
+#### Link for [demo](https://design19-cc.akshatvg.com) 
+[![Generic badge](https://img.shields.io/badge/view-demo-orange)](https://design19-cc.akshatvg.com)
 
 ## Requirements
 
