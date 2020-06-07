@@ -10,18 +10,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
     <!-- Linking CSS -->
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="icon" type="image/gif" href="images/favicon.jpg" />
 
     <!-- No Script -->
     <noscript>
-        <link rel="stylesheet" href="css/noscript.css" /></noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
     <!-- JQuery -->
-    <script src="js/jquery.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
 
     <!-- Particle.js-->
-    <script src="js/particles.min.js"></script>
+    <script src="assets/js/particles.min.js"></script>
 
     <!-- reCaptcha -->
     {{!-- <script src="https://www.google.com/recaptcha/api.js?render=6Ld_gsYUAAAAAKyxXO0Cn1wezKzIWutm8fuG_gdb"></script> --}}
@@ -52,10 +52,9 @@
                     <div class="fields">
                         {{#if ques}}
                         {{#each ques}}
-                        <p hidden class="ques1">{{this}}</p>
                         <strong>
                             <b>
-                                <p class="ques" style="text-align: left;font-weight:bolder">{{this}}</p>
+                                <h3 class="ques" style="text-align: left;">{{this}}</h3>
                             </b>
                         </strong>
                         <form>
@@ -66,17 +65,16 @@
                         </form>
                         {{/each}}
                         {{/if}}
-                        {{#if mques}}
+                        {{!-- {{#if mques}}
                         {{#each mques}}
-                        <p hidden>{{this}}</p>
                         {{#each this.data}}
                         <strong>
                             <b>
-                                <p class="ques" style="text-align: left;font-weight:bolder">{{this}}</p>
+                                <h3 class="ques" style="text-align: left;">{{this}}</h3>
                             </b>
                         </strong>
                         {{/each}}
-
+                        
                         <form>
                             <div class="form-group">
                                 <label for="answer" style="text-align: left;">Your Answer:</label>
@@ -84,13 +82,7 @@
                             </div>
                         </form>
                         {{/each}}
-                        {{/if}}
-                        {{#if jugaad}}
-                        {{#each jugaad}}
-                        <p hidden class="ju">{{this}}</p>
-                        {{/each}}
-                        {{/if}}
-
+                        {{/if}} --}}
                     </div>
                 </div>
             </div>
@@ -116,12 +108,12 @@
     <div id="bg"></div>
 
     <!-- Scripts -->
-    <script src="js/client.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/browser.min.js"></script>
-    <script src="js/breakpoints.min.js"></script>
-    <script src="js/util.js"></script>
-    <script src="js/main.js"></script>
+    <script src="assets/js/client.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 
     <!-- Disabling refresh -->
@@ -145,7 +137,7 @@
                 console.log('connected')
                 // Set the date being counting down to
                 var oldDateObj = new Date().getTime();
-                var countDownDate = moment(oldDateObj).add(15, 'm').toDate();
+                var countDownDate = moment(oldDateObj).add(1, 'm').toDate();
 
                 // count down updated every 1 second
                 var x = setInterval(function () {
@@ -170,32 +162,21 @@
 
                         var btnSubmit = document.querySelector('.btnSubmit')
                         var dom = document.querySelector('.dom')
+                        var domTitle = document.querySelector('.dom-title')
                         var resp1 = document.querySelectorAll('.sub')
-                        var ques1 = document.querySelectorAll('.ques1')
-                        var ju = document.querySelectorAll('.ju')
+                        var ques1 = document.querySelectorAll('.ques')
                         var arr = []
-                        var aar1 = []
-                        var j;
 
                         var i
-                        for (j = 0; j < ques1.length; j++) {
-                            aar1.push(ques1[j].innerHTML)
-                        }
-                        for (j = 0; j < ju.length; j++) {
-                            aar1.push(ju[j].innerHTML)
-                        }
-                        for (i = 0; i < aar1.length; i++) {
-
+                        for (i = 0; i < ques1.length; i++) {
                             var newobj = {
-                                ques: aar1[i],
+                                ques: ques1[i].innerHTML,
                                 answer: resp1[i].value
 
                             }
-
                             arr.push(newobj)
                         }
-
-                        var data = { domain: dom.innerHTML, title: dom.innerHTML, response: arr }
+                        var data = { domain: dom.innerHTML, title: domTitle.innerHTML, response: arr }
 
                         $.ajax({
                             url: '/storeResponse',
@@ -218,7 +199,7 @@
             }
         });
 
-        $('.btnSubmit').on('click', function () {
+        $(".btnSubmit").onclick(function () {
             timeLeft = false
             console.log("Done")
         });
