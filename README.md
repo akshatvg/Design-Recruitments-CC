@@ -6,7 +6,7 @@ Web portal for recruitments for the design core of 2019 for CodeChef-VIT.
 
 <p align="center">
 <a href="https://ccs19-cc.akshatvg.com">
-<img src="https://github.com/akshatvg/Design-Recruitments-CC/blob/master/static/images/CCS.png" alt="CCS Logo"/>
+<img src="https://github.com/akshatvg/Design-Recruitments-CC/blob/master/assets/images/CCS.png" alt="CCS Logo"/>
 </a>
 </p>
 
@@ -19,15 +19,12 @@ Web portal for recruitments for the design core of 2019 for CodeChef-VIT.
 
 [![GitHub top language](https://img.shields.io/github/languages/top/akshatvg/Design-Recruitments-CC?logo=javascript&style=social)](https://github.com/akshatvg/)
 
-The source code of this project is written in **`HTML/CSS/JS, Node.js`**. So, you need to have npm and Node.js installed to run this project along with a MongoDB account.
+The source code of this project is written in **`HTML/CSS/JS`**. So, you don't need to install anything extra to run this project.
 
 ## Instructions
-```
-$ git clone https://github.com/akshatvg/Design-Recruitments-CC
-$ cd Design-Recruitments-CC
-$ npm install
-$ node app.js
-```
+[![chrome](https://img.shields.io/badge/Open-index.html-lightgrey.svg?logo=google-chrome&style=popout&logoColor=red)](https://design19-cc.akshatvg.com)
+
+Extract the folder and run `index.html`
 
 ## Need help?
 
@@ -36,7 +33,7 @@ Feel free to contact me via [Facebook](https://www.facebook.com/akshatvg).
 
 Invite me to connect on [LinkedIn](https://www.linkedin.com/in/akshatvg/).
 
-[![Facebook](https://img.shields.io/badge/Facebook-add-blue.svg?logo=facebook&logoColor=white)](https://www.facebook.com/akshatvg) [![Quora](https://img.shields.io/badge/Quora-ask-red.svg?logo=quora)](https://www.quora.com/profile/Akshat-Gupta-279) [![Instagram](https://img.shields.io/badge/Instagram-follow-purple.svg?logo=instagram&logoColor=white)](https://www.instagram.com/akshatvg/) [![GitHub](https://img.shields.io/badge/Snapchat-add-yellow.svg?logo=snapchat&logoColor=white)](https://www.snapchat.com/add/akshatvg) [![Medium](https://img.shields.io/badge/Medium-follow-black.svg?logo=medium&logoColor=white)](https://medium.com/@akshatvg)
+[![Facebook](https://img.shields.io/badge/Facebook-add-blue.svg?logo=facebook&logoColor=white)](https://www.facebook.com/akshatvg) [![Quora](https://img.shields.io/badge/Quora-ask-red.svg?logo=quora)](https://www.quora.com/profile/Akshat-Gupta-279) [![Instagram](https://img.shields.io/badge/Instagram-follow-purple.svg?logo=instagram&logoColor=white)](https://www.instagram.com/akshatvg/) [![Snapchat](https://img.shields.io/badge/Snapchat-add-yellow.svg?logo=snapchat&logoColor=white)](https://www.snapchat.com/add/akshatvg) [![Medium](https://img.shields.io/badge/Medium-follow-black.svg?logo=medium&logoColor=white)](https://medium.com/@akshatvg)
 
 
 ```bash
