@@ -11,7 +11,7 @@
 
     <!-- Linking CSS -->
     <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="icon" type="image/gif" href="images/favicon.jpg" />
+    <link rel="icon" type="image/gif" href="assets/images/favicon.jpg" />
 
     <!-- No Script -->
     <noscript>
@@ -21,7 +21,7 @@
     <script src="assets/js/particles.min.js"></script>
 
     <!-- reCaptcha -->
-    {{!-- <script src="https://www.google.com/recaptcha/api.js?render=6Ld_gsYUAAAAAKyxXO0Cn1wezKzIWutm8fuG_gdb"></script> --}}
+    <script src="https://www.google.com/recaptcha/api.js?render=6Ld_gsYUAAAAAKyxXO0Cn1wezKzIWutm8fuG_gdb"></script> 
 
 </head>
 
@@ -36,7 +36,7 @@
 
         <!-- Header -->
         <header id="header">
-            <img class="img-responsive logo" src="images/Logo_White.png" alt="Logo" />
+            <img class="img-responsive logo" src="assets/images/Logo_White.png" alt="Logo" />
             <div class="content">
                 {{#each errors}}
                 <div class="alert alert-danger">
@@ -47,33 +47,9 @@
                 <div class="inner">
                     <h1>What Do You Want To Do?</h1>
                     <div class="fields">
-                        {{!-- <div class="field spacing-test">
-                            <a href="/tech">
-                                <img src="images/code.png" class="img-responsive" style="width:50px;height:50px;">
-                                <strong>
-                                    <h3>Technical Domain
-                                </strong>
-                                </h3>
-                                <p>
-                                    Passionate about coding?
-                                </p>
-                            </a>
-                        </div>
                         <div class="field spacing-test">
-                            <a href="/manage">
-                                <img src="images/manager.png" class="img-responsive" style="width:50px;height:50px;">
-                                <strong>
-                                    <h3>Management Domain
-                                </strong>
-                                </h3>
-                                <p>
-                                    Can you lead a team?
-                                </p>
-                            </a>
-                        </div> --}}
-                        {{!-- <div class="field spacing-test">
                             <a href="/designexam">
-                                <img src="images/design.png" class="img-responsive" style="width:50px;height:50px;">
+                                <img src="assets/images/design.png" class="img-responsive" style="width:50px;height:50px;">
                                 <strong>
                                     <h3>Design Domain: Online Test
                                 </strong>
@@ -82,10 +58,10 @@
                                     Does creativity run through your veins?
                                 </p>
                             </a>
-                        </div> --}}
+                        </div> 
                         <div class="field spacing-test">
                             <a href="/des_urls">
-                                <img src="images/content.png" class="img-responsive" style="width:50px;height:50px;">
+                                <img src="assets/images/content.png" class="img-responsive" style="width:50px;height:50px;">
                                 <strong>
                                     <h3>Upload Past Work
                                 </strong>
@@ -107,7 +83,7 @@
 
         </header>
 
-        {{!-- <div id="main">
+        <div id="main">
             <article id="des_urls">
                 <h2 class="major">Upload Past Work</h2>
                 {{#if msgsent}}
@@ -136,9 +112,9 @@
                         <li><input type="reset" value="Clear" class="primary" /></li>
                     </ul>
                 </form>
-                <img src="images/CC_black.png" alt="CodeChef- VIT" class="image main fit right" />
+                <img src="assets/images/CC_black.png" alt="CodeChef- VIT" class="image main fit right" />
             </article>
-        </div> --}}
+        </div> 
 
         <!-- Footer -->
         <footer id="footer">
