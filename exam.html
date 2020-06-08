@@ -25,7 +25,7 @@
 
 </head>
 
-<body>
+<body onload="checklogin();">
 
     <div id="preloader"></div>
 
@@ -38,35 +38,23 @@
         <header id="header">
             <img class="img-responsive logo" src="assets/images/Logo_White.png" alt="Logo" />
             <div class="content">
-                {{#each errors}}
+                <!-- {{#each errors}}
                 <div class="alert alert-danger">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     <p style="color: red;">{{this.text}}</p>
                 </div>
-                {{/each}}
+                {{/each}} -->
                 <div class="inner">
-                    <h1>What Do You Want To Do?</h1>
+                    <h1 id="dh1">What Do You Want To Do?</h1>
                     <div class="fields">
                         <div class="field spacing-test">
-                            <a href="/designexam">
-                                <img src="assets/images/design.png" class="img-responsive" style="width:50px;height:50px;">
-                                <strong>
-                                    <h3>Design Domain: Online Test
-                                </strong>
-                                </h3>
-                                <p>
-                                    Does creativity run through your veins?
-                                </p>
-                            </a>
-                        </div> 
-                        <div class="field spacing-test">
-                            <a href="/des_urls">
+                            <a id="da1" href="des_urls.html">
                                 <img src="assets/images/content.png" class="img-responsive" style="width:50px;height:50px;">
                                 <strong>
-                                    <h3>Upload Past Work
+                                    <h3 id="dh2">Upload Past Work
                                 </strong>
                                 </h3>
-                                <p>
+                                <p id="dh3">
                                     Have awesome projects to show to us?
                                 </p>
                             </a>
@@ -75,8 +63,8 @@
                 </div>
             </div>
 
-            <a href="/logout">
-                <button class="primary">Logout
+            <a>
+                <button class="primary" onclick="logout()">Logout
                 </button>
             </a>
 
@@ -86,12 +74,12 @@
         <div id="main">
             <article id="des_urls">
                 <h2 class="major">Upload Past Work</h2>
-                {{#if msgsent}}
+                <!-- {{#if msgsent}}
                 <div class="alert alert-success">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     <p>{{msgsent}}</p>
                 </div>
-                {{/if}}
+                {{/if}} -->
                 <form action="/contact" method="post" role="form">
                     <div class="fields mainpg">
                         <div class="field half">
@@ -127,6 +115,7 @@
     <div id="bg"></div>
 
     <!-- Scripts -->
+    <script src="assets/js/index.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
