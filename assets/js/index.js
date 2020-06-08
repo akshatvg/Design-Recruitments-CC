@@ -5,7 +5,7 @@ function checklogin()
     if (storedName == null) {
 
         window.location.replace("index.html")
-        alert('Please Login To Continue')
+        alert('Please Login To Continue.')
     } 
     else{
         checkGiven()
@@ -18,7 +18,7 @@ function checklogin2()
     if (storedName == null) {
 
         window.location.replace("index.html")
-        alert('Please Login To Continue')
+        alert('Please Login To Continue.')
     } 
     else{
         checkGiven2()
