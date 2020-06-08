@@ -47,7 +47,7 @@ function register()
             window.location.replace('/#login')
         }
         else if(this.status==402){
-            alert('Are you sure you entered a valid registration number of the batch of 2022?')
+            alert('Are you sure you entered a valid registration number of the batch of 2023?')
             window.location.replace('/#sign-up')
         }
         else if(this.status==401)
