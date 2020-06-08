@@ -87,32 +87,22 @@
 			<article id="instructions">
 				<h2 class="major">Instructions</h2>
 				<p class="about-txt">
-					1) You can attempt a test only once.
+					1) This test is only for the design domain.
 				</p>
 				<p class="about-txt">
-					2) Don't leave the page during the test or your attempt will be wasted.
-				</p>
-				<p class="about-txt">
-					3) You are supposed to attempt questions from the design exam as well as upload past work links
+					2) You are supposed to upload past work links
 					through
 					the link provided in the exam page.
 				</p>
+				
 				<p class="about-txt">
-					4) This test is only for the design domain.
-				</p>
-				<p class="about-txt">
-					5) Your answers will be autosaved if you do not submit them on time.
-				</p>
-				<p class="about-txt">
-					6) The total time for the design test is 20 minutes.
-				</p>
-				<p class="about-txt">
-					7) In multiple choice questions, type the whole option into the text box.
-				</p>
-				<p class="about-txt">
-					8) The past works link should be an open Google Drive folder link containing all your previous
+					3) The past works link should be an open Google Drive folder link containing all your previous
 					design work.
 				</p>
+				<p class="about-txt">
+					4) You can attempt a test only once.
+				</p>
+
 				<img src="assets/images/CC_black.png" alt="CodeChef- VIT" class="image main fit right" />
 			</article>
 
@@ -137,7 +127,7 @@
 						</div>
 						<div class="field half">
 							<label for="email">Email</label>
-							<input type="email" name="email" id="email" required />
+							<input type="email" name="email" id="remail" required />
 						</div>
 						<div class="field half">
 							<label for="regno">Registration Number</label>
@@ -171,7 +161,7 @@
 					<p>{{msgsent}}</p>
 				</div>
 				{{/if}} -->
-				<form action="/contact" method="post" role="form">
+				<form id="contactform" role="form">
 					<div class="fields mainpg">
 						<div class="field half">
 							<label for="name">Name</label>
@@ -265,6 +255,12 @@
 		})
 	</script>
 	<script>
+		document.getElementById('contactform').addEventListener('submit',(e)=>{
+			e.preventDefault()
+			contact()
+		})
+	</script>
+	<script>
 
 		document.getElementById('formSubmit').addEventListener('submit', (e) => {
 			e.preventDefault()
@@ -283,7 +279,7 @@
 					}
 					console.log(data)
 						var xh = new XMLHttpRequest();
-				xh.open("POST", "http://localhost:3000/design/user/login", true)
+				xh.open("POST", "https://cc-design.herokuapp.com/design/user/login", true)
 				xh.setRequestHeader('Content-Type', 'application/json')
 				xh.send(JSON.stringify(data))
 				xh.onload=function(){

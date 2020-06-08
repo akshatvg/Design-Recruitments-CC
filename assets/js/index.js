@@ -29,14 +29,14 @@ function register()
     var data=
     {
     "name":document.getElementById('first_name').value + document.getElementById('last_name').value,
-	"email":document.getElementById('email').value,
+	"email":document.getElementById('remail').value,
     "password":document.getElementById('password').value,
     "phone":document.getElementById('phoneno').value,
     "regno":document.getElementById('regno').value
     }
     console.log(data)
     var xh = new XMLHttpRequest();
-    xh.open("POST", "http://localhost:3000/design/user/create", true)
+    xh.open("POST", "https://cc-design.herokuapp.com/design/user/create", true)
     xh.setRequestHeader('Content-Type', 'application/json')
     xh.send(JSON.stringify(data))
     xh.onload=function(){
@@ -71,7 +71,7 @@ function submitdata()
     console.log(data)
     var jwt = localStorage.getItem('JWT_Token')
     var xh = new XMLHttpRequest();
-    xh.open("POST", "http://localhost:3000/submit/design/url", true)
+    xh.open("POST", "https://cc-design.herokuapp.com/submit/design/url", true)
     xh.setRequestHeader('Content-Type', 'application/json')
     xh.setRequestHeader('Authorization', jwt)
     xh.send(JSON.stringify(data))
@@ -93,7 +93,7 @@ function checkGiven()
 {
     var jwt = localStorage.getItem('JWT_Token')
     var xh = new XMLHttpRequest();
-    xh.open("GET", "http://localhost:3000/check/user/submission", true)
+    xh.open("GET", "https://cc-design.herokuapp.com/check/user/submission", true)
     xh.setRequestHeader('Content-Type', 'application/json')
     xh.setRequestHeader('Authorization', jwt)
     xh.send()
@@ -120,7 +120,7 @@ function checkGiven2()
 {
     var jwt = localStorage.getItem('JWT_Token')
     var xh = new XMLHttpRequest();
-    xh.open("GET", "http://localhost:3000/check/user/submission", true)
+    xh.open("GET", "https://cc-design.herokuapp.com/check/user/submission", true)
     xh.setRequestHeader('Content-Type', 'application/json')
     xh.setRequestHeader('Authorization', jwt)
     xh.send()
@@ -146,4 +146,32 @@ function logout()
     localStorage.removeItem("JWT_Token");
     alert('You have been logged out')
     window.location.replace("index.html")
+}
+
+function contact()
+{
+    var data=
+    {
+    "name":document.getElementById('name').value,
+	"email":document.getElementById('email').value,
+    "message":document.getElementById('message').value
+    }
+    console.log(data)
+    var xh = new XMLHttpRequest();
+    xh.open("POST", "https://cc-design.herokuapp.com/contact/team", true)
+    xh.setRequestHeader('Content-Type', 'application/json')
+    xh.send(JSON.stringify(data))
+    xh.onload=function(){
+        console.log(this.status)
+        if(this.status==201)
+        {
+            alert('Thanks for contacting us!')
+            window.location.replace('index.html')
+        }
+        
+        else{
+            alert('Failed to send message')
+            window.location.replace('index.html#contact')
+        }
+}
 }
