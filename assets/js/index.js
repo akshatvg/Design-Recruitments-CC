@@ -144,7 +144,7 @@ function checkGiven2()
 function logout()
 {
     localStorage.removeItem("JWT_Token");
-    alert('You have been logged out')
+    alert('Thank you for visiting. We hope to see you with us soon!')
     window.location.replace("index.html")
 }
 
