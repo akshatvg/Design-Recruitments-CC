@@ -43,20 +43,20 @@ function register()
         // console.log(this.status)
         if(this.status==201)
         {
-            alert('registered successfully! Login to continue')
+            alert('Registered successfully! Login to continue.')
             window.location.replace('index.html#login')
         }
         else if(this.status==402){
-            alert('Registration number not acceptable')
+            alert('Are you sure you entered a valid registration number of the batch of 2022?')
             window.location.replace('index.html#sign-up')
         }
         else if(this.status==401)
         {
-            alert('User already exists')
+            alert('Looks like your profile already exists...')
             window.location.replace('index.html#sign-up')
         }
         else{
-            alert('Failed to register! Try again')
+            alert('There was some error. Please try again!')
             window.location.replace('index.html#sign-up')
         }
 }
@@ -79,11 +79,11 @@ function submitdata()
         // console.log(this.status)
         if(this.status==201)
         {
-            alert('Thanks for submitting!')
+            alert('We have received your submission. Keep checking your email for further updates.')
             window.location.replace('exam.html')
         }
         else{
-            alert('Failed! Try again')
+            alert('There was some error. Please try again!')
             window.location.replace('des_urls.html')
         }
 }
@@ -111,7 +111,7 @@ function checkGiven()
             }
         }
         else{
-            alert('Failed! Try again')
+            alert('There was some error. Please try again!')
             window.location.replace('exam.html')
         }
 }
@@ -135,7 +135,7 @@ function checkGiven2()
             }
         }
         else{
-            alert('Failed! Try again')
+            alert('There was some error. Please try again!')
             window.location.replace('exam.html')
         }
 }
@@ -165,12 +165,12 @@ function contact()
         // console.log(this.status)
         if(this.status==201)
         {
-            alert('Thanks for contacting us!')
+            alert('We have received your message. Keep checking your inbox to hear more from us!')
             window.location.replace('index.html')
         }
         
         else{
-            alert('Failed to send message')
+            alert('Failed to send message. Please try again!')
             window.location.replace('index.html#contact')
         }
 }
