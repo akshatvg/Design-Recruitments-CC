@@ -4,7 +4,7 @@ function checklogin()
 
     if (storedName == null) {
 
-        window.location.replace("index.html")
+        window.location.replace("/")
         alert('Please Login To Continue.')
     } 
     else{
@@ -17,7 +17,7 @@ function checklogin2()
 
     if (storedName == null) {
 
-        window.location.replace("index.html")
+        window.location.replace("/")
         alert('Please Login To Continue.')
     } 
     else{
@@ -44,20 +44,20 @@ function register()
         if(this.status==201)
         {
             alert('Registered successfully! Login to continue.')
-            window.location.replace('index.html#login')
+            window.location.replace('/#login')
         }
         else if(this.status==402){
             alert('Are you sure you entered a valid registration number of the batch of 2022?')
-            window.location.replace('index.html#sign-up')
+            window.location.replace('/#sign-up')
         }
         else if(this.status==401)
         {
             alert('Looks like your profile already exists...')
-            window.location.replace('index.html#sign-up')
+            window.location.replace('/#sign-up')
         }
         else{
             alert('There was some error. Please try again!')
-            window.location.replace('index.html#sign-up')
+            window.location.replace('/#sign-up')
         }
 }
 }
@@ -80,11 +80,11 @@ function submitdata()
         if(this.status==201)
         {
             alert('We have received your submission. Keep checking your email for further updates.')
-            window.location.replace('exam.html')
+            window.location.replace('/exam')
         }
         else{
             alert('There was some error. Please try again!')
-            window.location.replace('des_urls.html')
+            window.location.replace('/des_urls')
         }
 }
 }
@@ -112,7 +112,7 @@ function checkGiven()
         }
         else{
             alert('There was some error. Please try again!')
-            window.location.replace('exam.html')
+            window.location.replace('/exam')
         }
 }
 }
@@ -131,12 +131,12 @@ function checkGiven2()
             var data=JSON.parse(this.responseText)
             if(data.link!=undefined)
             {
-                window.location.replace('exam.html')
+                window.location.replace('/exam')
             }
         }
         else{
             alert('There was some error. Please try again!')
-            window.location.replace('exam.html')
+            window.location.replace('/exam')
         }
 }
 }
@@ -145,7 +145,7 @@ function logout()
 {
     localStorage.removeItem("JWT_Token");
     alert('Thank you for visiting. We hope to see you with us soon!')
-    window.location.replace("index.html")
+    window.location.replace("/")
 }
 
 function contact()
@@ -166,12 +166,12 @@ function contact()
         if(this.status==201)
         {
             alert('We have received your message. Keep checking your inbox to hear more from us!')
-            window.location.replace('index.html')
+            window.location.replace('/')
         }
         
         else{
             alert('Failed to send message. Please try again!')
-            window.location.replace('index.html#contact')
+            window.location.replace('/#contact')
         }
 }
 }

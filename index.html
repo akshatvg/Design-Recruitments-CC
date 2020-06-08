@@ -288,19 +288,18 @@
 						if (this.status == 200) {
 							var data = JSON.parse(this.responseText)
 							localStorage.setItem("JWT_Token", "JWT " + data.token)
-							window.location.replace('exam.html')
+							window.location.replace('/exam')
 						}
 						else {
 							alert('Invalid login credentials')
-							window.location.replace('index.html#login')
+							window.location.replace('/#login')
 						}
 					}
 
 				})
 
 			})
-		})
-
+		});
 	</script>
 	<script>
 		setTimeout(function () {
