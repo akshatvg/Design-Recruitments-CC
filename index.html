@@ -94,7 +94,7 @@
 					through
 					the link provided in the exam page.
 				</p>
-				
+
 				<p class="about-txt">
 					3) The past works link should be an open Google Drive folder link containing all your previous
 					design work.
@@ -249,13 +249,13 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script>
-		document.getElementById('regform').addEventListener('submit',(e)=>{
+		document.getElementById('regform').addEventListener('submit', (e) => {
 			e.preventDefault()
 			register()
 		})
 	</script>
 	<script>
-		document.getElementById('contactform').addEventListener('submit',(e)=>{
+		document.getElementById('contactform').addEventListener('submit', (e) => {
 			e.preventDefault()
 			contact()
 		})
@@ -277,23 +277,22 @@
 						password: passend.value,
 						recaptcha: token
 					}
-					console.log(data)
-						var xh = new XMLHttpRequest();
-				xh.open("POST", "https://cc-design.herokuapp.com/design/user/login", true)
-				xh.setRequestHeader('Content-Type', 'application/json')
-				xh.send(JSON.stringify(data))
-				xh.onload=function(){
-					if(this.status==200)
-					{
-						var data = JSON.parse(this.responseText)
-						localStorage.setItem("JWT_Token", "JWT " + data.token)
-						window.location.replace('exam.html')
+					// console.log(data)
+					var xh = new XMLHttpRequest();
+					xh.open("POST", "https://cc-design.herokuapp.com/design/user/login", true)
+					xh.setRequestHeader('Content-Type', 'application/json')
+					xh.send(JSON.stringify(data))
+					xh.onload = function () {
+						if (this.status == 200) {
+							var data = JSON.parse(this.responseText)
+							localStorage.setItem("JWT_Token", "JWT " + data.token)
+							window.location.replace('exam.html')
+						}
+						else {
+							alert('Invalid login credentials')
+							window.location.replace('index.html#login')
+						}
 					}
-					else{
-						alert('Invalid login credentials')
-						window.location.replace('index.html#login')
-					}
-}
 
 				})
 

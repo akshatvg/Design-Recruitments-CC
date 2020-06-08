@@ -142,7 +142,7 @@
 
         $(window).on('load', function () {
             if (timeLeft == true) {
-                console.log('connected')
+                // console.log('connected')
                 // Set the date being counting down to
                 var oldDateObj = new Date().getTime();
                 var countDownDate = moment(oldDateObj).add(15, 'm').toDate();
@@ -202,11 +202,11 @@
                             type: "POST",
                             data: { display: JSON.stringify(data) },
                             success: function (data) {
-                                console.log('success')
+                                // console.log('success')
                                 window.location.href = '/exam'
                             },
                             error: function (err) {
-                                console.log('error')
+                                // console.log('error')
                             }
 
                         })
@@ -214,13 +214,13 @@
                 }, 1000);
             }
             else {
-                console.log("done with the test")
+                // console.log("done with the test")
             }
         });
 
         $('.btnSubmit').on('click', function () {
             timeLeft = false
-            console.log("Done")
+            // console.log("Done")
         });
     </script>
 

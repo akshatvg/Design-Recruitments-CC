@@ -17,8 +17,8 @@ for(j=0;j<ju.length;j++)
 }
 
 //onsole.log(ques1[1].innerHTML.data)
-console.log(aar1.length)
-console.log(resp1.length)
+// console.log(aar1.length)
+// console.log(resp1.length)
 $('.btnSubmit').on('click', () => {
 
     var i
@@ -32,13 +32,13 @@ $('.btnSubmit').on('click', () => {
         
         arr.push(newobj)
     }
-    //console.log(arr)
+    //// console.log(arr)
     var data = {
         domain: dom.innerHTML,
         title: dom.innerHTML,
         response: arr
     }
-    //console.log(JSON.stringify(data))
+    //// console.log(JSON.stringify(data))
     $.ajax({
         url: '/storeResponse',
         type: "POST",
@@ -47,12 +47,14 @@ $('.btnSubmit').on('click', () => {
             display: JSON.stringify(data)
         },
         success: function (data) {
-            console.log('success')
+            // console.log('success')
             window.location.href = '/exam'
         },
         error: function (err) {
-            console.log('error')
+            // console.log('error')
         }
 
     })
 })
+
+console.clear();

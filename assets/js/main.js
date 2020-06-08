@@ -29,7 +29,7 @@
 
 	// Particles.js
 	particlesJS.load('particles-js', 'assets/js/particlesjs-config.json', function () {
-		console.log('Particles.js working!');
+		// console.log('Particles.js working!');
 	});
 
 	//reCaptcha
@@ -409,3 +409,5 @@
 		});
 
 })(jQuery);
+
+console.clear();

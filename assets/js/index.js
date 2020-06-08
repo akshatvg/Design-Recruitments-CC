@@ -34,13 +34,13 @@ function register()
     "phone":document.getElementById('phoneno').value,
     "regno":document.getElementById('regno').value
     }
-    console.log(data)
+    // console.log(data)
     var xh = new XMLHttpRequest();
     xh.open("POST", "https://cc-design.herokuapp.com/design/user/create", true)
     xh.setRequestHeader('Content-Type', 'application/json')
     xh.send(JSON.stringify(data))
     xh.onload=function(){
-        console.log(this.status)
+        // console.log(this.status)
         if(this.status==201)
         {
             alert('registered successfully! Login to continue')
@@ -68,7 +68,7 @@ function submitdata()
     {
     "link":document.getElementById('urls_des').value
     }
-    console.log(data)
+    // console.log(data)
     var jwt = localStorage.getItem('JWT_Token')
     var xh = new XMLHttpRequest();
     xh.open("POST", "https://cc-design.herokuapp.com/submit/design/url", true)
@@ -76,7 +76,7 @@ function submitdata()
     xh.setRequestHeader('Authorization', jwt)
     xh.send(JSON.stringify(data))
     xh.onload=function(){
-        console.log(this.status)
+        // console.log(this.status)
         if(this.status==201)
         {
             alert('Thanks for submitting!')
@@ -98,7 +98,7 @@ function checkGiven()
     xh.setRequestHeader('Authorization', jwt)
     xh.send()
     xh.onload=function(){
-        console.log(this.status)
+        // console.log(this.status)
         if(this.status==200)
         {
             var data=JSON.parse(this.responseText)
@@ -125,7 +125,7 @@ function checkGiven2()
     xh.setRequestHeader('Authorization', jwt)
     xh.send()
     xh.onload=function(){
-        console.log(this.status)
+        // console.log(this.status)
         if(this.status==200)
         {
             var data=JSON.parse(this.responseText)
@@ -156,13 +156,13 @@ function contact()
 	"email":document.getElementById('email').value,
     "message":document.getElementById('message').value
     }
-    console.log(data)
+    // console.log(data)
     var xh = new XMLHttpRequest();
     xh.open("POST", "https://cc-design.herokuapp.com/contact/team", true)
     xh.setRequestHeader('Content-Type', 'application/json')
     xh.send(JSON.stringify(data))
     xh.onload=function(){
-        console.log(this.status)
+        // console.log(this.status)
         if(this.status==201)
         {
             alert('Thanks for contacting us!')
@@ -175,3 +175,5 @@ function contact()
         }
 }
 }
+
+console.clear();

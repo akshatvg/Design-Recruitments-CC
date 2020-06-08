@@ -24,13 +24,15 @@ btnSubmit.addEventListener('click',()=>{
             type:"POST",
             data:{display:JSON.stringify(data)},
             success:function(data){
-                console.log('success')
+                // console.log('success')
                 window.location.href='/addQues'
             },
             error:function(err)
             {
-                console.log('error')
+                // console.log('error')
             }
             
         })
 })
+
+console.clear();
