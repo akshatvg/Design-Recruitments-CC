@@ -6,7 +6,6 @@ var captcha=require('../middleware/captcha')
 const router=new express.Router()
 var db = require('../config/keys')
 const nodemailer=require('nodemailer')
-var host
 let transporter = nodemailer.createTransport({
     host:'smtp.zoho.com',
     port: 465,
@@ -108,7 +107,7 @@ router.post('/send/verification/link',async function(req,res){
         var user=await User.findOne({email:req.body.email})
         user.rand=rand
         await user.save()
-        host=req.get('host');
+        user.host=req.get('host');
         var link="http://"+req.get('host')+"/verify?email="+req.body.email+"&id="+rand;
         var mailto=req.body.email
         console.log
@@ -137,11 +136,11 @@ router.post('/send/verification/link',async function(req,res){
 
 router.get('/verify',async function(req,res){
     console.log(req.protocol+":/"+req.get('host'));
-    if((req.protocol+"://"+req.get('host'))==("http://"+host))
+    var user=await User.findOne({email:req.query.email})
+    if((req.protocol+"://"+req.get('host'))==("http://"+user.host))
     {
     console.log("Domain is matched. Information is from Authentic email");
     //console.log(rand)
-    var user=await User.findOne({email:req.query.email})
     if(req.query.id==user.rand)
     {
         console.log("email is verified");
