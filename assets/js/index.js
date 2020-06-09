@@ -43,7 +43,7 @@ function register()
         // console.log(this.status)
         if(this.status==201)
         {
-            alert('Registered successfully! Verify your email to login....Wait we are sending the verification mail')
+            alert('Registered successfully! Please verify your email to continue. Check your inbox for the verification link.')
             sendemail(document.getElementById('remail').value)
         }
         else if(this.status==402){
@@ -52,7 +52,7 @@ function register()
         }
         else if(this.status==401)
         {
-            alert('Looks like your profile already exists...')
+            alert('Either your profile already exists or you have not verified your email yet')
             window.location.replace('/#sign-up')
         }
         else{
