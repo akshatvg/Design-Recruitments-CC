@@ -50,10 +50,6 @@ var userSchema = new mongoose.Schema({
     verified:{
         type:Boolean,
         default:false
-    },
-    host:
-    {
-        type:String
     }
 })
 

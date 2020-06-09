@@ -107,7 +107,7 @@ router.post('/send/verification/link',async function(req,res){
         var user=await User.findOne({email:req.body.email})
         user.rand=rand
         await user.save()
-        user.host=req.get('host');
+        var host=req.get('host');
         var link="http://"+req.get('host')+"/verify?email="+req.body.email+"&id="+rand;
         var mailto=req.body.email
         console.log
@@ -137,20 +137,9 @@ router.post('/send/verification/link',async function(req,res){
 router.get('/verify',async function(req,res){
     console.log(req.protocol+":/"+req.get('host'));
     var user=await User.findOne({email:req.query.email})
-    if((req.protocol+"://"+req.get('host'))==("http://"+user.host))
-    {
-    console.log("Domain is matched. Information is from Authentic email");
-    //console.log(rand)
     if(req.query.id==user.rand)
     {
         console.log("email is verified");
-        // userModel.findOne({email:req.query.email}).then((user)=>{
-        //     if(user){
-        //         user.verified=true
-        //         console.log(user)
-        //         user.save()
-        //     }
-        // })
         user.verified=true
         await user.save()
         console.log('updated')
@@ -160,11 +149,6 @@ router.get('/verify',async function(req,res){
     {
         console.log("email is not verified")
         res.json("Bad Request - email not verified")
-    }
-    }
-    else
-    {
-    res.json("Request is from unknown source")
     }
     })
 
