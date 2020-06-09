@@ -170,7 +170,7 @@ router.get('/verify',async function(req,res){
     })
 
 router.post('/verifyemail',(req,res)=>{
-    userModel.findOne({email:req.body.email}).then((user)=>{
+    User.findOne({email:req.body.email}).then((user)=>{
         if(user.verified==true)
         {
             res.status(200).json("email is verified")
