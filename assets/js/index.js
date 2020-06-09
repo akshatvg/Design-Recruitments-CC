@@ -43,8 +43,8 @@ function register()
         // console.log(this.status)
         if(this.status==201)
         {
-            alert('Registered successfully! Login to continue.')
-            window.location.replace('/#login')
+            alert('Registered successfully! Verify your email to login....Wait we are sending the verification mail')
+            sendemail(document.getElementById('remail').value)
         }
         else if(this.status==402){
             alert('Are you sure you entered a valid registration number of the batch of 2023?')
@@ -175,5 +175,91 @@ function contact()
         }
 }
 }
+function sendemail(email)
+{
+    var data={
+        email:email
+    }
+    var xh = new XMLHttpRequest();
+    xh.open("POST", "https://cc-design.herokuapp.com/send/verification/link", true)
+    xh.setRequestHeader('Content-Type', 'application/json')
+    xh.send(JSON.stringify(data))
+    xh.onload=function(){
+        // console.log(this.status)
+        if(this.status==200)
+        {
+            alert('Verification email sent! Please check your registered email and verify to login!')
+            window.location.replace('/#login')
+        }
+        else if(this.status==400){
+            alert('Failed to send verification email')
+            window.location.replace('/#sign-up')
+        }
+}
+}
 
+function verify(email,pass)
+{
+    var data={
+        email:email
+    }
+    var xh = new XMLHttpRequest();
+    xh.open("POST", "https://cc-design.herokuapp.com/verifyemail", true)
+    xh.setRequestHeader('Content-Type', 'application/json')
+    xh.send(JSON.stringify(data))
+    xh.onload=function(){
+        // console.log(this.status)
+        if(this.status==200)
+        {
+            login(email,pass)
+        }
+        else if(this.status==400){
+            alert('Please verify your email first to login')
+            window.location.replace('/#login')
+        }
+        else if(this.status==404)
+        {
+            alert('User not registered! Please register to continue')
+            window.location.replace('/#sign-up')
+        }
+}
+
+}
+
+function login(email,pass)
+{
+    grecaptcha.ready(() => {
+        grecaptcha.execute('6Ld_gsYUAAAAAKyxXO0Cn1wezKzIWutm8fuG_gdb', {
+            action: '/'
+        }).then((token) => {
+
+            // var emailsend = document.querySelector('#lemail')
+            // var passend = document.querySelector('#lpassword')
+
+            var data = {
+                email: email,
+                password: pass,
+                recaptcha: token
+            }
+            // console.log(data)
+            var xh = new XMLHttpRequest();
+            xh.open("POST", "https://cc-design.herokuapp.com/design/user/login", true)
+            xh.setRequestHeader('Content-Type', 'application/json')
+            xh.send(JSON.stringify(data))
+            xh.onload = function () {
+                if (this.status == 200) {
+                    var data = JSON.parse(this.responseText)
+                    localStorage.setItem("JWT_Token", "JWT " + data.token)
+                    window.location.replace('/exam')
+                }
+                else {
+                    alert('Invalid login credentials')
+                    window.location.replace('/#login')
+                }
+            }
+
+        })
+
+    })
+}
 console.clear();
