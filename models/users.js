@@ -42,7 +42,15 @@ var userSchema = new mongoose.Schema({
     },
     token:{
             type:String
-        }
+        },
+    rand:
+    {
+        type:Number
+    },
+    verified:{
+        type:Boolean,
+        default:false
+    }
 })
 
 userSchema.methods.toJSON=function(){
