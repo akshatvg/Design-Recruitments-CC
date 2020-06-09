@@ -20,7 +20,7 @@
 
 	<!-- Particle.js-->
 	<script src="assets/js/particles.min.js"></script>
-	
+
 
 	<!-- reCaptcha -->
 	<script type="text/javascript"
@@ -137,8 +137,7 @@
 						</div>
 						<div class="field half">
 							<label for="phoneno">Phone Number</label>
-							<input type="tel" name="phoneno" id="phoneno" required maxlength="10"
-								pattern="[0-9]{10}" />
+							<input type="tel" name="phoneno" id="phoneno" required maxlength="10" pattern="[0-9]{10}" />
 						</div>
 						<div class="field half">
 							<label for="password">Password</label>
@@ -147,7 +146,7 @@
 					</div>
 					<ul class="actions">
 						<!-- <button onclick="register()" class="primary">sign-up</button> -->
-						<li><input type="submit" value="SignUp" class="primary" /></li>
+						<li><input type="submit" value="SignUp" class="primary" id="signupBtn" /></li>
 						<li><input type="reset" value="Clear" class="primary" /></li>
 					</ul>
 				</form>
@@ -179,7 +178,7 @@
 						</div>
 					</div>
 					<ul class="actions">
-						<li><input type="submit" value="Send Message" class="primary" /></li>
+						<li><input type="submit" value="Send Message" class="primary" id="contactBtn" /></li>
 						<li><input type="reset" value="Clear" class="primary" /></li>
 					</ul>
 				</form>
@@ -226,7 +225,7 @@
 						</div>
 					</div>
 					<ul class="actions">
-						<li><input type="submit" value="Sign In" class="primary btnLogin" /></li>
+						<li><input type="submit" value="Sign In" class="primary btnLogin" id="loginBtn" /></li>
 						<li><input type="reset" value="Clear" class="primary" /></li>
 					</ul>
 				</form>
@@ -254,22 +253,22 @@
 	<script src="assets/js/main.js"></script>
 	<script>
 		document.getElementById('regform').addEventListener('submit', (e) => {
-			e.preventDefault()
-			register()
-		})
+			e.preventDefault();
+			register();
+		});
 	</script>
 	<script>
 		document.getElementById('contactform').addEventListener('submit', (e) => {
 			e.preventDefault()
 			contact()
-		})
+		});
 	</script>
 	<script>
 
 		document.getElementById('formSubmit').addEventListener('submit', (e) => {
 			e.preventDefault()
-			verify(document.querySelector('#lemail').value,document.querySelector('#lpassword').value)
-			
+			verify(document.querySelector('#lemail').value, document.querySelector('#lpassword').value)
+
 		});
 	</script>
 	<script>
