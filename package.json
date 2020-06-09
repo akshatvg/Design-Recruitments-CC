@@ -1,0 +1,45 @@
+{
+  "name": "design-recruitments-cc",
+  "version": "1.0.0",
+  "description": "Official portal for CodeChef-VIT's design recruitments for the year 2020.",
+  "main": "app.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.1.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.18",
+    "request": "^2.88.2",
+    "validator": "^13.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node app.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akshatvg/Design-Recruitments-CC.git"
+  },
+  "keywords": [
+    "design",
+    "recruitments",
+    "clubs",
+    "chapters",
+    "codechefvit",
+    "xd",
+    "adobe",
+    "figma",
+    "sketch",
+    "ui",
+    "ux"
+  ],
+  "author": "Navyaa Sharma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akshatvg/Design-Recruitments-CC/issues"
+  },
+  "homepage": "https://github.com/akshatvg/Design-Recruitments-CC#readme"
+}
