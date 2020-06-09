@@ -31,7 +31,7 @@ router.post('/design/user/create',async(req,res)=>{
                 const user=new User(req.body)
                 try{
                     await user.save()
-                    console.log(user)
+                    // console.log(user)
                     res.status(201).send(user)
                 }
                 catch{
@@ -44,8 +44,8 @@ router.post('/design/user/create',async(req,res)=>{
 
 router.post('/design/user/login',captcha,async(req,res)=>{
     try{
-        console.log("--------------")
-        //console.log(req.body)
+        // console.log("--------------")
+        //// console.log(req.body)
         const user=await User.findByCredentials(req.body.email,req.body.password)
         const token=await user.generateToken()
         if(!user)
@@ -110,20 +110,20 @@ router.post('/send/verification/link',async function(req,res){
         var host=req.get('host');
         var link="http://"+req.get('host')+"/verify?email="+req.body.email+"&id="+rand;
         var mailto=req.body.email
-        console.log
+        // console.log
         mailOptions={
             from : 'noreply@codechefvit.com',
             to : mailto,
             subject : "Please confirm your Email account",
             html : "Hello,<br> Please Click on the link to verify your email.<br><a href="+link+">Click here to verify</a>"
         }
-        console.log(mailOptions)
+        // console.log(mailOptions)
         transporter.sendMail(mailOptions, function(error, response){
         if(error){
-                console.log(error)
+                // console.log(error)
             res.status(401).json("error")
         }else{
-                console.log("Message sent: ");
+                // console.log("Message sent: ");
             res.status(200).json("sent")
             }
         });
@@ -135,19 +135,19 @@ router.post('/send/verification/link',async function(req,res){
 });
 
 router.get('/verify',async function(req,res){
-    console.log(req.protocol+":/"+req.get('host'));
+    // console.log(req.protocol+":/"+req.get('host'));
     var user=await User.findOne({email:req.query.email})
     if(req.query.id==user.rand)
     {
-        console.log("email is verified");
+        // console.log("email is verified");
         user.verified=true
         await user.save()
-        console.log('updated')
+        // console.log('updated')
         res.status(200).json("Email is been Successfully verified")
     }
     else
     {
-        console.log("email is not verified")
+        // console.log("email is not verified")
         res.json("Bad Request - email not verified")
     }
     })
