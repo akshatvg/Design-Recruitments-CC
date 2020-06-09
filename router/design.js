@@ -142,7 +142,7 @@ router.get('/verify',async function(req,res){
         user.verified=true
         await user.save()
         // console.log('updated')
-        res.status(200).json("Email is been Successfully verified")
+        res.status(200).json("Your email has been successfully verified. Go to design.codechefvit.com and submit your response now!")
     }
     else
     {
