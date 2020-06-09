@@ -110,7 +110,6 @@ router.post('/send/verification/link',async function(req,res){
         var host=req.get('host');
         var link="http://"+req.get('host')+"/verify?email="+req.body.email+"&id="+rand;
         var mailto=req.body.email
-        console.log
         mailOptions={
             from : 'noreply@codechefvit.com',
             to : mailto,
