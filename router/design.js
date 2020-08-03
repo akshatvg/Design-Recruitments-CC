@@ -11,7 +11,7 @@ let transporter = nodemailer.createTransport({
     port: 465,
     auth: {
       user: 'noreply@codechefvit.com', // your gmail address
-      pass: "Ccisbest123#"// your gmail password
+      pass: process.env.password// your gmail password
     }
   });
 router.post('/design/user/create',async(req,res)=>{
